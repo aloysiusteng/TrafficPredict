@@ -49,7 +49,7 @@ class DataLoader:
         random.seed(42)
         np.random.seed(42)
         # List of data directories where raw data resides
-        self.data_dirs = "../data/prediction_train/"
+        self.data_dirs = "../data/json_text/"
         self.dataset_cnt = len(os.listdir(self.data_dirs))
         self.dataset_idx = sorted(os.listdir(self.data_dirs))
         np.random.shuffle(self.dataset_idx)
@@ -120,7 +120,7 @@ class DataLoader:
         max_position_y = -1000
 
         for ind_directory, directory in enumerate(data_dirs):
-            file_path = os.path.join("../data/prediction_train/", directory)
+            file_path = os.path.join("../data/json_text/", directory)
             data = np.genfromtxt(file_path, delimiter=" ")
             min_position_x = min(min_position_x, min(data[:, 3]))
             max_position_x = max(max_position_x, max(data[:, 3]))
@@ -131,7 +131,7 @@ class DataLoader:
             # define path of the csv file of the current dataset
             # file_path = os.path.join(directory, 'pixel_pos.csv')
 
-            file_path = os.path.join("../data/prediction_train/", directory)
+            file_path = os.path.join("../data/json_text/", directory)
 
             # Load the data from the csv file
             data = np.genfromtxt(file_path, delimiter=" ")
